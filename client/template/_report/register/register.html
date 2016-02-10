@@ -1,0 +1,71 @@
+<!--Form-->
+<template name="registerRpt">
+    <!--<h2 class="page-header">Report</h2>-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <legend>Register Insert</legend>
+        </div>
+        <div class="panel-body">
+            {{#autoForm schema="Schema.RegisterRpt" id="registerRpt"}}
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{>afQuickField name= "fromDate"}}
+                        </div>
+                        <div class="col-md-6">
+                            {{>afQuickField name= "toDate"}}
+                        </div>
+                    </div>
+                </fieldset>
+                <Button type="submit" class="btn btn-primary"> View</Button>
+            {{/autoForm}}
+        </div>
+    </div>
+</template>
+
+<template name="registerRptGen">
+    <h2 style="text-align: center">Rabbit IT Solution</h2>
+    <h3 style="text-align: center">Register Report</h3>
+    Date: {{data.header.date}}
+
+    <table width="100%" border="1" style="border-collapse: collapse">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Reg ID</th>
+            <th>Reg Date</th>
+            <th>Student</th>
+            <th>Subject</th>
+            <th>Price</th>
+            <th>Dis Amount</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each data.content}}
+            <tr>
+                <td align="center">{{no @index}}</td>
+                <td align="center">{{_id}}</td>
+                <td align="center">{{moFormat regDate "DD/MM/YYYY"}}</td>
+                <td align="center">{{_student.name}}</td>
+                <td align="center">{{_subject.name}}</td>
+                <td align="center">{{numFormat price "$ 0,0.00"}}</td>
+                <td align="center">{{numFormat discount "$ 0,0.00"}}</td>
+                <td align="center">{{numFormat amount "$ 0,0.00"}}</td>
+            </tr>
+        {{/each}}
+            <tr>
+                <td colspan="6"></td>
+                <td align="center">Grand Total</td>
+                <td align="center">{{numFormat data.amount "$ 0,0.00"}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4" align="center">Date.......</div>
+        <div class="col-md-8"></div>
+        <div class="col-md-4" align="center">Prepared by</div>
+    </div>
+</template>
+

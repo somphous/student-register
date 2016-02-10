@@ -1,0 +1,77 @@
+<head>
+    <link rel="icon" href="rabbit.ico">
+    <title>Rabbit</title>
+</head>
+<template name="mainLayout">    <body style="margin-top: 60px">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Rabbit</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{pathFor 'home'}}">Home</a></li>
+
+                    {{#if currentUser}}
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Data
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{pathFor 'student'}}">Student</a></li>
+                                <li><a href="{{pathFor 'register'}}">Register</a></li>
+                                <li><a href="{{pathFor 'payment'}}">Payment</a></li>
+                            </ul>
+                        </li>
+
+                        <!--Setting-->
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Setting
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{pathFor 'subject'}}">Subject</a></li>
+                                <li><a href="{{pathFor 'teacher'}}">Teacher</a></li>
+                            </ul>
+                        </li>
+
+                        <!--Report-->
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Report
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{pathFor 'registerRpt'}}">Register</a></li>
+                                <li><a href="{{pathFor 'paymentRpt'}}">Payment</a></li>
+                            </ul>
+                        </li>
+
+                    {{/if}}
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {{> loginButtons}} <!-- here -->
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <!--Breadcrumb-->
+        {{> breadcrumb}}
+        <!--Content-->
+        {{> Template.dynamic template=content}}
+        <!--Footer-->
+        <footer>
+            <p>&copy; 2016 Company, Inc.</p>
+        </footer>
+    </div> <!-- /container -->
+    </body>
+</template>
