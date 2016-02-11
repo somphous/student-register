@@ -1,7 +1,7 @@
 Schema.OsRpt = new SimpleSchema({
-    fromDate: {
+    asAt: {
         type: Date,
-        label: "Date",
+        label: "AsAt Date",
         defaultValue: moment().toDate(),
         autoform: {
             type: "bootstrap-datetimepicker",

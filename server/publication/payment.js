@@ -7,3 +7,8 @@ Meteor.publish('payment', function (selector) {
     let data = Collection.Payment.find(selector);
     return data;
 });
+
+Meteor.publish('payments',()=>{
+   let data=Collection.Payment.find();
+    return data;
+});

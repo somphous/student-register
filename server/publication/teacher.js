@@ -7,3 +7,8 @@ Meteor.publish('teacher', function (selector) {
     let data = Collection.Teacher.find(selector);
     return data;
 });
+
+Meteor.publish('teachers', ()=>{
+   let data=Collection.Teacher.find();
+    return data;
+});

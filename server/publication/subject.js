@@ -18,3 +18,12 @@ Meteor.publish('subject', function (selector) {
     let data = Collection.Subject.find(selector);
     return data;
 });
+
+//Meteor.publish('registers', ()=> {
+//    let data = Collection.Register.find();
+//    return data;
+//});
+Meteor.publish('subjects', ()=>{
+   let data=Collection.Subject.find();
+    return data;
+});

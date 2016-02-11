@@ -40,7 +40,7 @@ Schema.Payment = new SimpleSchema({
             type: "select",
             options: function () {
                 var studentId = AutoForm.getFieldValue('studentId');
-                console.log(studentId);
+                //console.log(studentId);
 
                 var data = Collection.Register.find({studentId: studentId});
                 var list = [{label: '(Select One)', value: ''}];
@@ -114,9 +114,8 @@ Schema.Payment = new SimpleSchema({
                 let osAmount=0;
                 let dueAmount = AutoForm.getFieldValue('dueAmount');
                 let paidAmount = AutoForm.getFieldValue('paidAmount');
-                //console.log(price);
-                //console.log(discount);
-                return 0;
+                return dueAmount-paidAmount;
+
             },
             type: "inputmask",
             afFieldInput: {
